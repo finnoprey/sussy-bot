@@ -16,6 +16,10 @@ module.exports = {
 			const commandName = file.replace('.js', '')
 			const command = guild.commands.cache.find(cmd => cmd.name === commandName)
 
+			if (command == null) {
+				continue
+			}
+
 			if (!command.defaultPermission) {
 				const roles = commandFile.roles
 				const permissions = []
